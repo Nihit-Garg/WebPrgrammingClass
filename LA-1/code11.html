@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Portfolio Frameset</title>
+</head>
+<!-- A frameset replaces the body tag to divide the screen into columns and rows -->
+<frameset cols="20%, 80%">
+    <!-- The left column takes 20% width -->
+    <frame src="left-frame.html" name="leftFrame">
+
+        <!-- The right column takes 80% width and is split into two rows -->
+        <frameset rows="60%, 40%">
+            <!-- Top right row takes 60% height -->
+            <frame src="right-top-frame.html" name="rightTopFrame">
+
+                <!-- Bottom right row takes 40% height -->
+                <frame src="right-bottom-frame.html" name="rightBottomFrame">
+        </frameset>
+</frameset>
+
+</html>

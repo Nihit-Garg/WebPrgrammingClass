@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Sources Tutorial</title>
+</head>
+
+<body>
+
+    <h1>Adding Images to a Web Page</h1>
+    <p>This tutorial explains the three ways to source and display images on your website using the
+        <code>&lt;img&gt;</code> tag.
+    </p>
+
+    <!-- 1. From an external website link (URL) -->
+    <h2>1. From an External Website Link (URL)</h2>
+    <p>You can use an absolute URL pointing to an image hosted on another server. While convenient, you rely on the
+        external server's uptime for your image to load.</p>
+    <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=400&auto=format&fit=crop"
+        alt="External internet image example" width="300">
+
+    <hr>
+
+    <!-- 2. From an image stored on the local computer -->
+    <h2>2. From an Image Stored on the Local Computer</h2>
+    <p>While developing locally, you can reference an absolute file path on your own computer's hard drive. However,
+        this image will break when the site is published because other users cannot access your local file system.</p>
+    <img src="/Users/nihitgarg/Downloads/IMG_9994.HEIC" alt="Local computer file path example" width="300">
+
+    <hr>
+
+    <!-- 3. From an image placed inside the project folder -->
+    <h2>3. From an Image Placed Inside the Project Folder</h2>
+    <p>This is the standard and most reliable method. By placing an image inside your website's project directory, you
+        use a relative path. This ensures the image moves with the HTML file when deployed to a server.</p>
+    <img src="PHOTO-2026-02-15-16-29-01.jpg" alt="Project folder relative path example" width="300">
+
+</body>
+
+</html>
