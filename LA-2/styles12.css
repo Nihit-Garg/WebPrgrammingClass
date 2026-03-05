@@ -1,0 +1,122 @@
+/* General page styling */
+body {
+    background-color: skyblue;
+    /* Webpage background must be set to sky blue */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+/* Main heading styling */
+h1 {
+    text-align: center;
+    color: darkblue;
+    margin-bottom: 30px;
+}
+
+.student-info {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: darkblue;
+}
+
+/* Navigation Section Styling */
+nav {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+nav a {
+    background-color: darkblue;
+    /* Dark blue background color */
+    color: white;
+    /* White text color */
+    text-decoration: none;
+    padding: 10px 20px;
+    /* Padding */
+    border-radius: 5px;
+    /* Rounded corners */
+    margin: 0 10px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #000080;
+    /* Slightly darker blue on hover */
+}
+
+/* Registration Form Requirements */
+form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Form sections Styling */
+.form-section {
+    background-color: darkblue;
+    /* Dark blue background color */
+    color: white;
+    /* White text color */
+    padding: 25px;
+    /* Proper padding */
+    margin-bottom: 30px;
+    /* Proper spacing */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Input fields alignment and styling */
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    width: 150px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Submit Button Styling */
+.submit-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button[type="submit"] {
+    background-color: darkblue;
+    color: white;
+    padding: 12px 30px;
+    font-size: 18px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: white;
+    color: darkblue;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Window</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            /* Clean background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Centered vertically and horizontally */
+        }
+
+        /* Student info positioned at top left */
+        .student-info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .login-box {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            /* Smooth corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            /* Drop shadow for depth */
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .login-box h1 {
+            margin-bottom: 25px;
+            color: #333333;
+            font-size: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+
+        .input-group input:focus {
+            border-color: #007bff;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="student-info">Nihit Garg - 24BCE0627</div>
+
+    <div class="login-box">
+        <h1>Login</h1>
+        <form>
+            <div class="input-group">
+                <input type="text" placeholder="Username" required>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+</body>
+
+</html>
