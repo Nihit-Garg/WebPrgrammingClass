@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Page</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <button onclick="displayMessage()">Click Me</button>
+    <div id="output"></div>
+
+    <script>
+        // Function declaration
+        function displayMessage() {
+            // Variables (var) & DOM access (document.getElementById)
+            var element = document.getElementById("output");
+
+            // outerHTML property
+            element.outerHTML = "<h1>Hello, world!</h1>";
+        }
+    </script>
+
+</body>

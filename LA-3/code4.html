@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area of a Rectangle</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+
+    <h3>Area Calculation Results</h3>
+    <div id="results"></div>
+
+    <script>
+        // Use var for variable declaration
+        // Use camelCase naming convention: rectWidth, rectHeight, rectArea
+
+        // Calculate with Integers first
+        var rectWidth = 10;
+        var rectHeight = 5;
+
+        // Loose typing (dynamic typing) - variables hold numbers now
+        var rectArea = rectWidth * rectHeight;
+
+        // Build the output string
+        var outputHTML = "<p><b>Integer Calculation:</b><br>";
+        outputHTML += "Width: " + rectWidth + ", Height: " + rectHeight + "<br>";
+        outputHTML += "Area = " + rectArea + "</p>";
+
+        // Calculate with Floating-point numbers
+        // Variables are dynamically updated to hold floats without changing type declaration
+        rectWidth = 10.5;
+        rectHeight = 5.2;
+        rectArea = rectWidth * rectHeight;
+
+        outputHTML += "<p><b>Floating-Point Calculation:</b><br>";
+        outputHTML += "Width: " + rectWidth + ", Height: " + rectHeight + "<br>";
+        outputHTML += "Area = " + rectArea + "</p>";
+
+        // Display results using innerHTML
+        document.getElementById("results").innerHTML = outputHTML;
+    </script>
+</body>
+
+</html>

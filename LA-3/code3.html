@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Address Generator</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+
+    <form id="emailForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="fname"><br><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lname"><br><br>
+
+        <!-- this.form is passed as an argument directly from the button click -->
+        <button type="button" onclick="generateEmail(this.form)">Generate Email</button>
+    </form>
+
+    <br>
+    <div id="result"></div>
+
+    <script>
+        function generateEmail(formObj) {
+            // form.elements access
+            var fName = formObj.elements["fname"].value.trim().toLowerCase();
+            var lName = formObj.elements["lname"].value.trim().toLowerCase();
+
+            if (fName && lName) {
+                // String concatenation (+ operator)
+                var emailAddress = fName + "." + lName + "@park.edu";
+
+                // innerHTML
+                document.getElementById("result").innerHTML = "<b>Generated Email:</b> " + emailAddress;
+
+                // reset() method
+                formObj.reset();
+
+                // focus() method
+                formObj.elements["fname"].focus();
+            } else {
+                document.getElementById("result").innerHTML = "<span style='color:red;'>Please enter both first and last names.</span>";
+            }
+        }
+    </script>
+</body>
+
+</html>
