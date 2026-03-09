@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <h3>Generate Multiplication Table</h3>
+
+    <!-- User Input -->
+    <label for="inputNumber">Enter a number:</label>
+    <input type="number" id="inputNumber">
+    <button onclick="generateTable()">Generate</button>
+
+    <br><br>
+
+    <!-- Output Display -->
+    <div id="tableOutput"></div>
+
+    <script>
+        function generateTable() {
+            var numStr = document.getElementById("inputNumber").value;
+            var outputDiv = document.getElementById("tableOutput");
+
+            if (numStr === "") {
+                outputDiv.innerHTML = "<span style='color:red;'>Please enter a number.</span>";
+                return;
+            }
+
+            var num = parseFloat(numStr);
+            var resultStr = "<b>Multiplication Table for " + num + ":</b><br>";
+            var multiplier = 1;
+
+            // Do-while loop execution (body first, condition later)
+            // This guarantees minimum one execution even if multiplier > 10 initially
+            do {
+                // Multiplication operation inside loop
+                var product = num * multiplier;
+
+                // Building string output with HTML line breaks
+                resultStr += num + " x " + multiplier + " = " + product + "<br>";
+
+                multiplier++;
+            } while (multiplier <= 10);
+
+            outputDiv.innerHTML = resultStr;
+        }
+    </script>
+</body>
+
+</html>

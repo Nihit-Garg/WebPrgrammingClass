@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Button Selection</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <h3>Choose Your Favorite Color</h3>
+
+    <!-- Radio button grouping using same name attribute -->
+    <!-- Only one selection allowed in a group -->
+    <label>
+        <input type="radio" name="colorOption" value="Red"> Red
+    </label><br>
+    <label>
+        <input type="radio" name="colorOption" value="Green"> Green
+    </label><br>
+    <label>
+        <input type="radio" name="colorOption" value="Blue"> Blue
+    </label><br><br>
+
+    <button onclick="checkColor()">Submit Color</button>
+
+    <br><br>
+    <div id="result"></div>
+
+    <script>
+        function checkColor() {
+            var resultDiv = document.getElementById("result");
+
+            // Accessing collection of elements by name
+            var radioButtons = document.getElementsByName("colorOption");
+            var selectedColor = "";
+
+            // Looping through radio button collection
+            for (var i = 0; i < radioButtons.length; i++) {
+
+                // Checking selected state using .checked property
+                if (radioButtons[i].checked) {
+                    selectedColor = radioButtons[i].value;
+                    break; // Exit loop once found since only one can be checked
+                }
+            }
+
+            if (selectedColor !== "") {
+                resultDiv.innerHTML = "<b>You selected:</b> <span style='color:" + selectedColor.toLowerCase() + ";'>" + selectedColor + "</span>";
+            } else {
+                resultDiv.innerHTML = "<span style='color:red;'>Please select a color before submitting.</span>";
+            }
+        }
+    </script>
+</body>
+
+</html>

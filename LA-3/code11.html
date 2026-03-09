@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest Calculator</title>
+
+    <!-- External JavaScript file linking -->
+    <script src="logic11.js"></script>
+
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <h3>Calculate Simple Interest</h3>
+
+    <label for="principalInput">Principal ($):</label>
+    <input type="number" id="principalInput" step="any"><br><br>
+
+    <label for="rateInput">Rate of Interest (%):</label>
+    <input type="number" id="rateInput" step="any"><br><br>
+
+    <label for="timeInput">Time (Years):</label>
+    <input type="number" id="timeInput" step="any"><br><br>
+
+    <button onclick="handleCalculation()">Calculate SI</button>
+
+    <br><br>
+    <div id="result"></div>
+
+    <script>
+        function handleCalculation() {
+            var principal = parseFloat(document.getElementById("principalInput").value);
+            var rate = parseFloat(document.getElementById("rateInput").value);
+            var time = parseFloat(document.getElementById("timeInput").value);
+            var resultDiv = document.getElementById("result");
+
+            if (isNaN(principal) || isNaN(rate) || isNaN(time)) {
+                resultDiv.innerHTML = "<span style='color:red;'>Please enter valid numbers in all fields.</span>";
+                return;
+            }
+
+            // Multiple input parameters handling & Calling the external function
+            var interest = calculateSI(principal, rate, time);
+
+            resultDiv.innerHTML = "<b>Calculated Simple Interest:</b> $" + interest.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>

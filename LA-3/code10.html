@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Selection Counter</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <h3>Select Your Subjects</h3>
+
+    <!-- Multiple selections allowed in checkboxes -->
+    <label>
+        <input type="checkbox" name="subjectOption" value="Math"> Math
+    </label><br>
+    <label>
+        <input type="checkbox" name="subjectOption" value="Science"> Science
+    </label><br>
+    <label>
+        <input type="checkbox" name="subjectOption" value="History"> History
+    </label><br>
+    <label>
+        <input type="checkbox" name="subjectOption" value="English"> English
+    </label><br><br>
+
+    <button onclick="countCheckboxes()">Submit Subjects</button>
+
+    <br><br>
+    <div id="result"></div>
+
+    <script>
+        function countCheckboxes() {
+            var checkboxes = document.getElementsByName("subjectOption");
+
+            // Counter variable for counting selections
+            var selectedCount = 0;
+
+            // Building array of selected values
+            var selectedSubjects = [];
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    // Using push() to add elements to array
+                    selectedSubjects.push(checkboxes[i].value);
+
+                    // Incrementing counter
+                    selectedCount++;
+                }
+            }
+
+            var resultDiv = document.getElementById("result");
+
+            if (selectedCount > 0) {
+                // Using join() to convert array to string
+                var subjectsString = selectedSubjects.join(", ");
+
+                resultDiv.innerHTML = "<b>You selected " + selectedCount + " subject(s):</b> " + subjectsString;
+            } else {
+                resultDiv.innerHTML = "<span style='color:red;'>Please select at least one subject.</span>";
+            }
+        }
+    </script>
+</body>
+
+</html>

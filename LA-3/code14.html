@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Styling Application</title>
+    <style>
+        /* Predefined CSS classes */
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .small-caps {
+            font-variant: small-caps;
+        }
+
+        #message {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <h3>Text Styling Application</h3>
+
+    <!-- fieldset and legend for grouping -->
+    <fieldset>
+        <legend>Style Controls</legend>
+
+        <!-- Buttons to apply styles -->
+        <button onclick="applyStyle('bold')">Bold</button>
+        <button onclick="applyStyle('italic')">Italic</button>
+        <button onclick="applyStyle('small-caps')">Small-Caps</button>
+
+        <!-- Multiple class assignment -->
+        <button onclick="applyStyle('bold italic small-caps')">Apply All (Multiple Classes)</button>
+
+        <button onclick="applyStyle('')">Clear Styles</button>
+    </fieldset>
+
+    <div id="message">
+        This is a sample message to demonstrate text styling using JavaScript!
+    </div>
+
+    <script>
+        function applyStyle(styleClasses) {
+            // className property usage
+            // It replaces any existing classes with the new classes provided
+            var msgElement = document.getElementById("message");
+            msgElement.className = styleClasses;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Order Form</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <h3>Order Your Products</h3>
+
+    <form id="orderForm">
+        <!-- Multiple fieldsets -->
+        <fieldset>
+            <legend>Electronics</legend>
+            <label><input type="checkbox" name="product" value="299.99"> Smartphone ($299.99)</label><br>
+            <label><input type="checkbox" name="product" value="899.50"> Laptop ($899.50)</label><br>
+            <label><input type="checkbox" name="product" value="199.00"> Smartwatch ($199.00)</label><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Accessories</legend>
+            <label><input type="checkbox" name="product" value="19.99"> Phone Case ($19.99)</label><br>
+            <label><input type="checkbox" name="product" value="45.00"> Wireless Mouse ($45.00)</label><br>
+            <label><input type="checkbox" name="product" value="25.50"> Keyboard Cover ($25.50)</label><br>
+        </fieldset>
+
+        <br>
+        <button type="button" onclick="calculateTotal()">Calculate Total</button>
+    </form>
+
+    <br><br>
+    <div id="result"></div>
+
+    <script>
+        function calculateTotal() {
+            // Select only the checked checkboxes using querySelectorAll
+            const selectedItems = document.querySelectorAll('input[name="product"]:checked');
+            let total = 0;
+
+            // for...of loop (modern JavaScript)
+            for (const item of selectedItems) {
+                // parseFloat() for price conversion
+                // Dynamic calculation
+                total += parseFloat(item.value);
+            }
+
+            const resultDiv = document.getElementById("result");
+
+            if (total > 0) {
+                resultDiv.innerHTML = "<b>Total Order Price:</b> <span style='color:green;'>$" + total.toFixed(2) + "</span>";
+            } else {
+                resultDiv.innerHTML = "<span style='color:red;'>Please select at least one item to calculate the total.</span>";
+            }
+        }
+    </script>
+</body>
+
+</html>

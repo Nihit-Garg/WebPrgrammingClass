@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Skills Application</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <h3>Select Your Job Skills (Minimum 3)</h3>
+
+    <!-- Required is removed; validation is fully JavaScript controlled -->
+    <form id="skillsForm" onsubmit="return validateSkills(event)">
+        <label>
+            <input type="checkbox" name="skill" value="HTML"> HTML
+        </label><br>
+        <label>
+            <input type="checkbox" name="skill" value="CSS"> CSS
+        </label><br>
+        <label>
+            <input type="checkbox" name="skill" value="JavaScript"> JavaScript
+        </label><br>
+        <label>
+            <input type="checkbox" name="skill" value="Python"> Python
+        </label><br>
+        <label>
+            <input type="checkbox" name="skill" value="SQL"> SQL
+        </label><br>
+        <label>
+            <input type="checkbox" name="skill" value="Git"> Git
+        </label><br><br>
+
+        <button type="submit">Submit Application</button>
+    </form>
+
+    <br><br>
+    <div id="result"></div>
+
+    <script>
+        function validateSkills(event) {
+            var checkboxes = document.getElementsByName("skill");
+            var selectedSkills = [];
+
+            // Clear any previous custom errors before checking
+            for (var j = 0; j < checkboxes.length; j++) {
+                checkboxes[j].setCustomValidity("");
+            }
+
+            // for loop with index
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    selectedSkills.push(checkboxes[i].value);
+                }
+            }
+
+            var resultDiv = document.getElementById("result");
+
+            // Array length property check
+            if (selectedSkills.length >= 3) {
+                // String concatenation
+                var outputStr = "<b>Validation Success!</b> You have the following skills: " + selectedSkills.join(", ");
+                resultDiv.innerHTML = "<span style='color:green;'>" + outputStr + "</span>";
+
+                // Important: returning false prevents the form from physically submitting
+                // and refreshing the page, allowing us to see the green success message!
+                event.preventDefault();
+                return true;
+            } else {
+                // CheckValidity concept: apply custom error
+                checkboxes[0].setCustomValidity("Please select at least 3 skills.");
+
+                // Show native popup
+                document.getElementById("skillsForm").reportValidity();
+
+                resultDiv.innerHTML = "<span style='color:red;'>Error: You selected " + selectedSkills.length + " skills. At least 3 are required.</span>";
+
+                event.preventDefault();
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

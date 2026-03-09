@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Numbers (1 to N)</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <h3>Print Numbers from 1 to N</h3>
+
+    <!-- Taking user input from text field -->
+    <label for="numberN">Enter N: </label>
+    <input type="number" id="numberN" min="1">
+    <button onclick="printNumbers()">Print</button>
+
+    <br><br>
+
+    <!-- Displaying output in HTML element -->
+    <div id="result"></div>
+
+    <script>
+        function printNumbers() {
+            var nStr = document.getElementById("numberN").value;
+            var outputDiv = document.getElementById("result");
+
+            // Validate input
+            if (nStr === "" || parseInt(nStr) < 1) {
+                outputDiv.innerHTML = "<span style='color:red;'>Please enter a valid number greater than 0.</span>";
+                return;
+            }
+
+            var n = parseInt(nStr);
+            var resultHTML = "<b>Numbers:</b><br>";
+
+            // Counter initialization
+            var counter = 1;
+
+            // While loop execution with condition checking
+            while (counter <= n) {
+                resultHTML += counter + " ";
+
+                // Counter increment
+                counter++;
+            }
+
+            // Outputing the result string
+            outputDiv.innerHTML = resultHTML;
+        }
+    </script>
+</body>
+
+</html>

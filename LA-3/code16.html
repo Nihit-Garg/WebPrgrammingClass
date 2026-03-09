@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlapping Image Gallery</title>
+    <style>
+        .gallery-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin-top: 20px;
+        }
+
+        /* position: absolute for placing images on top of one another */
+        .gallery-item {
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            cursor: pointer;
+            border: 4px solid #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease-in-out;
+            border-radius: 10px;
+
+            /* Initial z-index CSS property */
+            z-index: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Staggered positioning to show overlap */
+        #img1 {
+            top: 20px;
+            left: 20px;
+        }
+
+        #img2 {
+            top: 60px;
+            left: 100px;
+        }
+
+        #img3 {
+            top: 100px;
+            left: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <h3>Overlapping Image Gallery</h3>
+    <p>Click on any image to bring it to the front!</p>
+
+    <div class="gallery-container">
+        <!-- Using placeholder images to create the gallery -->
+        <img class="gallery-item" id="img1" style="object-fit: cover;" src="IMG_9994.HEIC" onclick="bringToFront(this)"
+            alt="Image 1">
+        <img class="gallery-item" id="img2" style="object-fit: cover;" src="PHOTO-2026-02-15-16-29-01.jpg"
+            onclick="bringToFront(this)" alt="Image 2">
+        <img class="gallery-item" id="img3" style="object-fit: cover;" src="PHOTO-2026-02-15-18-08-54.jpg"
+            onclick="bringToFront(this)" alt="Image 3">
+    </div>
+
+    <script>
+        // Global variable for tracking top index
+        var highestZIndex = 1;
+
+        function bringToFront(clickedImage) {
+            // ++ increment operator (prefix mode)
+            // Increments the variable first, then assigns the new higher value to the element
+            clickedImage.style.zIndex = ++highestZIndex;
+        }
+    </script>
+</body>
+
+</html>

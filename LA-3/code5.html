@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+
+    <!-- Number control (type="number") and step="any" attribute -->
+    <label for="num1">First Number:</label>
+    <input type="number" id="num1" step="any"><br><br>
+
+    <label for="num2">Second Number:</label>
+    <input type="number" id="num2" step="any"><br><br>
+
+    <button onclick="calculate('add')">Add (+)</button>
+    <button onclick="calculate('subtract')">Subtract (-)</button>
+    <button onclick="calculate('multiply')">Multiply (*)</button>
+    <button onclick="calculate('divide')">Divide (/)</button>
+
+    <br><br>
+    <div id="result"></div>
+
+    <script>
+        function calculate(operation) {
+            var num1Input = document.getElementById("num1").value;
+            var num2Input = document.getElementById("num2").value;
+
+            // Check for empty inputs
+            if (num1Input === "" || num2Input === "") {
+                document.getElementById("result").innerHTML = "<span style='color:red;'>Please enter both numbers.</span>";
+                return;
+            }
+
+            // parseFloat() function
+            var num1 = parseFloat(num1Input);
+            var num2 = parseFloat(num2Input);
+            var resultValue;
+
+            // switch statement
+            switch (operation) {
+                case 'add':
+                    resultValue = num1 + num2;
+                    break;
+                case 'subtract':
+                    resultValue = num1 - num2;
+                    break;
+                case 'multiply':
+                    resultValue = num1 * num2;
+                    break;
+                case 'divide':
+                    // Division by zero handling
+                    if (num2 === 0) {
+                        document.getElementById("result").innerHTML = "<span style='color:red;'>Error: Division by zero is not allowed.</span>";
+                        return;
+                    }
+                    resultValue = num1 / num2;
+                    break;
+                default:
+                    document.getElementById("result").innerHTML = "Invalid operation.";
+                    return;
+            }
+
+            // Display Output
+            document.getElementById("result").innerHTML = "<b>Result:</b> " + resultValue;
+        }
+    </script>
+</body>
+
+</html>

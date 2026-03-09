@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information System</title>
+
+    <!-- CSS styling -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            padding: 5px;
+            width: 250px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+
+        button[type="reset"] {
+            background-color: #f44336;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Nihit Garg - 24BCE0627</h2>
+        <h3>Add New Student</h3>
+
+        <!-- Form handling and various controls -->
+        <form id="studentForm">
+            <div class="form-group">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" required>
+            </div>
+            <div class="form-group">
+                <label for="studentName">Name:</label>
+                <input type="text" id="studentName" required>
+            </div>
+            <div class="form-group">
+                <label for="studentCourse">Course:</label>
+                <select id="studentCourse">
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="M.Tech">M.Tech</option>
+                    <option value="BCA">BCA</option>
+                    <option value="MCA">MCA</option>
+                </select>
+            </div>
+
+            <!-- Buttons, reset/focus methods trigger -->
+            <button type="button" onclick="addStudent()">Add Student</button>
+            <button type="button" onclick="clearForm()">Reset Form</button>
+        </form>
+
+        <h3>Student Records</h3>
+        <div id="tableContainer">
+            <!-- Dynamic table will be generated here -->
+            <p>No students added yet.</p>
+        </div>
+    </div>
+
+    <script>
+        // Global variables (Array)
+        var studentDatabase = [];
+
+        // JavaScript Objects
+        function StudentConstructor(id, name, course) {
+            // Identifiers and assignment statements
+            this.id = id;
+            this.name = name;
+            this.course = course;
+
+            // Object methods (this keyword)
+            this.getDetails = function () {
+                return this.id + " - " + this.name + " (" + this.course + ")";
+            };
+        }
+
+        // Functions with parameters
+        function addStudent() {
+            var idInput = document.getElementById("studentId").value.trim();
+            var nameInput = document.getElementById("studentName").value.trim();
+            var courseInput = document.getElementById("studentCourse").value;
+
+            if (idInput === "" || nameInput === "") {
+                alert("Please fill in both Student ID and Name.");
+                return;
+            }
+
+            // Creating a new JavaScript object instance
+            var newStudent = new StudentConstructor(idInput, nameInput, courseInput);
+
+            // Pushing object to the global Array
+            studentDatabase.push(newStudent);
+
+            // Re-render table and clear form
+            renderTable();
+            clearForm();
+        }
+
+        // Function to handle Reset/Focus methods
+        function clearForm() {
+            var form = document.getElementById("studentForm");
+
+            // reset() method
+            form.reset();
+
+            // focus() method
+            document.getElementById("studentId").focus();
+        }
+
+        // Dynamic table generation and DOM Manipulation
+        function renderTable() {
+            var container = document.getElementById("tableContainer");
+
+            if (studentDatabase.length === 0) {
+                container.innerHTML = "<p>No students added yet.</p>";
+                return;
+            }
+
+            // Start building the dynamic table string
+            var tableHTML = "<table>";
+            tableHTML += "<tr><th>ID</th><th>Name</th><th>Course</th><th>Details Meth.</th></tr>";
+
+            // Loop through the Array of Objects
+            for (var i = 0; i < studentDatabase.length; i++) {
+                var student = studentDatabase[i];
+                tableHTML += "<tr>";
+                tableHTML += "<td>" + student.id + "</td>";
+                tableHTML += "<td>" + student.name + "</td>";
+                tableHTML += "<td>" + student.course + "</td>";
+                tableHTML += "<td>" + student.getDetails() + "</td>"; // Using Object Method
+                tableHTML += "</tr>";
+            }
+
+            tableHTML += "</table>";
+
+            // DOM manipulation (innerHTML)
+            container.innerHTML = tableHTML;
+        }
+    </script>
+</body>
+
+</html>

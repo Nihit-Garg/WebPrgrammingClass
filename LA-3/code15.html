@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Font Customizer</title>
+</head>
+
+<body>
+    <h2>Nihit Garg - 24BCE0627</h2>
+    <h3>Customize Your Text</h3>
+
+    <!-- fieldset grouping -->
+    <fieldset style="width: 350px;">
+        <legend>Style Controls</legend>
+
+        <!-- Range slider input -->
+        <label for="fontSizeSlider">Font Size: <span id="sizeValue">20px</span></label><br>
+        <input type="range" id="fontSizeSlider" min="10" max="60" value="20" oninput="updateStyles()"><br><br>
+
+        <!-- Color picker input -->
+        <label for="textColorPicker">Text Color:</label>
+        <input type="color" id="textColorPicker" value="#000000" oninput="updateStyles()"><br><br>
+
+        <label for="bgColorPicker">Background Color:</label>
+        <input type="color" id="bgColorPicker" value="#f0f0f0" oninput="updateStyles()"><br>
+    </fieldset>
+
+    <br><br>
+
+    <!-- The element we will be dynamically modifying -->
+    <div id="targetText"
+        style="padding: 20px; font-size: 20px; color: #000000; background-color: #f0f0f0; border: 1px solid #ccc;">
+        Watch my style change dynamically as you adjust the controls above!
+    </div>
+
+    <script>
+        function updateStyles() {
+            var targetDiv = document.getElementById("targetText");
+
+            // Get current values from the inputs
+            var newSize = document.getElementById("fontSizeSlider").value;
+            var newTextColor = document.getElementById("textColorPicker").value;
+            var newBgColor = document.getElementById("bgColorPicker").value;
+
+            // Update the display text for the range slider
+            document.getElementById("sizeValue").innerText = newSize + "px";
+
+            // Dynamic property changes using the style property for inline CSS
+            targetDiv.style.fontSize = newSize + "px";
+            targetDiv.style.color = newTextColor;
+            targetDiv.style.backgroundColor = newBgColor;
+        }
+    </script>
+</body>
+
+</html>
