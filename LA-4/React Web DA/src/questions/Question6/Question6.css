@@ -1,0 +1,135 @@
+/* Question6.css */
+.weather-app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+  font-family: Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.weather-app-card {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+}
+
+.student-info {
+  color: #64748b;
+  margin: 0 0 15px 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.weather-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.weather-header h2 {
+  color: #0369a1;
+  margin: 0;
+}
+
+.weather-search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.weather-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.weather-input:focus {
+  outline: none;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+}
+
+.weather-btn {
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background-color: #0ea5e9;
+  transition: background-color 0.2s;
+}
+
+.weather-btn:hover {
+  background-color: #0284c7;
+}
+
+.weather-loading, .weather-error, .weather-empty {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.weather-loading {
+  color: #0369a1;
+  background-color: #f0f9ff;
+}
+
+.weather-error {
+  color: #b91c1c;
+  background-color: #fef2f2;
+}
+
+.weather-empty {
+  color: #64748b;
+  background-color: #f8fafc;
+  font-style: italic;
+}
+
+.weather-dashboard {
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 12px;
+  padding: 25px;
+  color: #0f172a;
+}
+
+.weather-dashboard h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #0369a1;
+  font-size: 24px;
+  text-align: center;
+}
+
+.weather-row {
+  margin-bottom: 12px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0f2fe;
+  padding-bottom: 8px;
+}
+
+.weather-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
